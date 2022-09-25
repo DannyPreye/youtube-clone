@@ -20,7 +20,7 @@ export default function VideoCard({
   return (
     <Card
       sx={{
-        width: { md: '320px', xs: '100%' },
+        width: { xs: '100%', md: '320px' },
         boxShadow: 'none',
         borderRadius: '0',
       }}
@@ -28,7 +28,7 @@ export default function VideoCard({
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
         <CardMedia
           alt={snippet?.title}
-          sx={{ width: 358, height: 180 }}
+          sx={{ width: { xs: '100%', sm: '358px', md: '320px' }, height: 180 }}
           image={snippet?.thumbnails?.high?.url}
         />
       </Link>
@@ -47,7 +47,7 @@ export default function VideoCard({
         >
           <Typography variant='subtitle2' fontWeight='bold' color='gray'>
             {snippet?.channelTitle || demoChannelTitle}
-            <CheckCircle sx={{ fontSize: 12, color: 'gray', ml: 5 }} />
+            <CheckCircle sx={{ fontSize: 12, color: 'gray', ml: '5px' }} />
           </Typography>
         </Link>
       </CardContent>

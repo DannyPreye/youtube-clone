@@ -4,9 +4,21 @@ import { CheckCircle } from '@mui/icons-material';
 
 import { demoProfilePicture } from '../utils/constants';
 
-export default function ChannelCard({ channelDetail }) {
+export default function ChannelCard({ channelDetail, marginTop }) {
   return (
-    <Box sx={{ boxShadow: 'none', borderRadius: '20px' }}>
+    <Box
+      sx={{
+        boxShadow: 'none',
+        borderRadius: '20px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: { xs: '356px', md: '320px' },
+        height: '326px',
+        margin: 'auto',
+        marginTop,
+      }}
+    >
       <Link to={`/channel/${channelDetail?.id?.channelId}`}>
         <CardContent
           sx={{
@@ -15,6 +27,7 @@ export default function ChannelCard({ channelDetail }) {
             justifyContent: 'center',
             alignContent: 'center',
             color: '#fff',
+            textAlign: 'center',
           }}
         >
           <CardMedia
@@ -33,13 +46,14 @@ export default function ChannelCard({ channelDetail }) {
           />
           <Typography variant='h6'>
             {channelDetail?.snippet?.title}{' '}
-            <CheckCircle sx={{ fontSize: 14, color: 'gray', ml: 5 }} />
+            <CheckCircle sx={{ fontSize: 14, color: 'gray', ml: '5px' }} />
           </Typography>
           {channelDetail?.statistics?.subscriberCount && (
             <Typography>
               {parseInt(
                 channelDetail?.statistics?.subscriberCount
-              ).toLocaleString()}
+              ).toLocaleString()}{' '}
+              Subscribers
             </Typography>
           )}
         </CardContent>
